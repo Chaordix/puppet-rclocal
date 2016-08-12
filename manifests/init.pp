@@ -1,5 +1,14 @@
 class rclocal {
-  $rclocal_file = '/etc/rc.d/rc.local'
+  case $::operatingsystem {
+    'Debian', 'Ubuntu': {
+      $rclocal_file = '/etc/rc.local'
+    }
+    'RedHat': {
+      $rclocal_file = '/etc/rc.d/rc.local'
+    }
+    default: {
+      fail("Module not supported on ${::operatingsystem}.")
+    }
 
   concat { $rclocal_file:
     owner => 'root',

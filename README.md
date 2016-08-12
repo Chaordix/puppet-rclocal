@@ -1,8 +1,8 @@
 #puppet-rclocal
 
-This module is used by other modules to update content in `/etc/rc.d/rc.local`.
+This module is used by other modules to update content in `/etc/rc.d/rc.local` or `/etc/rc.local`.
 
-It will overwrite `/etc/rc.d/rc.local`.
+It will overwrite `/etc/rc.d/rc.local` or `/etc/rc.local`.
 
 # Usage
 
