@@ -18,8 +18,14 @@ class rclocal {
 
   concat::fragment{ 'rclocal_header':
     target  => $rclocal_file,
-    content => "#!/bin/sh\n# Managed by puppet - do not modify\ntouch /var/lock/subsys/local\n",
+    content => "#!/bin/sh\n# Managed by puppet - do not modify\n",
     order   => '01'
+  }
+
+  concat::fragment{ 'rclocal_exit':
+    target  => $rclocal_file,
+    content => "exit 0\n",
+    order   => '99'
   }
 }
 
